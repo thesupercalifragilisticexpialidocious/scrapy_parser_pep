@@ -1,5 +1,5 @@
-from csv import QUOTE_NONE, unix_dialect, writer
 from collections import defaultdict
+from csv import QUOTE_NONE, unix_dialect, writer
 from datetime import datetime as dt
 
 from .settings import BASE_DIR, RESULTS
@@ -9,11 +9,13 @@ TIME_FORMAT = r'%Y-%m-%d_%H-%M-%S'
 
 
 class PepParsePipeline:
-    counter = defaultdict(int)
 
-    def open_spider(self, spider):
+    def __init__(self):
         self.results = BASE_DIR / RESULTS
         self.results.mkdir(exist_ok=True)
+
+    def open_spider(self, spider):
+        self.counter = defaultdict(int)
 
     def process_item(self, item, spider):
         self.counter[item['status']] += 1
