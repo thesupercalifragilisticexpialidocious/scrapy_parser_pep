@@ -1,5 +1,3 @@
-from urllib.parse import urlunsplit
-
 import scrapy
 
 from ..items import PepParseItem
