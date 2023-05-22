@@ -4,7 +4,6 @@ import scrapy
 
 from ..items import PepParseItem
 
-import logging
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
